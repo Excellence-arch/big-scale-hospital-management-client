@@ -6,10 +6,14 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { HistoryComponent } from './history/history.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "/home" },
   { path: "home", component: HomeComponent },
+  { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent },
   { path: "users", component: SideNavComponent, children: [
     { path: "dashboard", component: DashboardComponent },
     { path: "schedule", component: ScheduleComponent },

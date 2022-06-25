@@ -20,7 +20,10 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { ScheduleComponent } from './schedule/schedule.component';
 import { HistoryComponent } from './history/history.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ChatComponent } from './chat/chat.component'
+import { ChatComponent } from './chat/chat.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ValidateAccountComponent } from './validate-account/validate-account.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { ChatComponent } from './chat/chat.component'
     ScheduleComponent,
     HistoryComponent,
     ProfileComponent,
-    ChatComponent
+    ChatComponent,
+    LoginComponent,
+    RegisterComponent,
+    ValidateAccountComponent
   ],
   imports: [
     BrowserModule,
