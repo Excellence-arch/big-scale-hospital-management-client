@@ -16,6 +16,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { ScheduleComponent } from './schedule/schedule.component';
 import { HistoryComponent } from './history/history.component';
@@ -24,6 +25,9 @@ import { ChatComponent } from './chat/chat.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ValidateAccountComponent } from './validate-account/validate-account.component'
+import { FormsModule } from '@angular/forms';
+import { VerifyComponent } from './verify/verify.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,8 @@ import { ValidateAccountComponent } from './validate-account/validate-account.co
     ChatComponent,
     LoginComponent,
     RegisterComponent,
-    ValidateAccountComponent
+    ValidateAccountComponent,
+    VerifyComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +58,9 @@ import { ValidateAccountComponent } from './validate-account/validate-account.co
     MatSidenavModule,
     MatListModule,
     MatSnackBarModule,
+    MatInputModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

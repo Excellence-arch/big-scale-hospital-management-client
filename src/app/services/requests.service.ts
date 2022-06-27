@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class RequestsService {
-  public baseURL: string = "";
+  public baseURL: string = "http://localhost:9000";
 
   constructor(public httpClient: HttpClient) { }
 
@@ -13,8 +13,12 @@ export class RequestsService {
     return this.httpClient.post(`${this.baseURL}/users/register`, newUser);
   }
 
-  login(id: number) {
-    return this.httpClient.post(`${this.baseURL}/users/login`, id);
+  login(id: any) {
+    return this.httpClient.post(`${this.baseURL}/users/login`, {id});
+  }
+
+  verifyCode(id: any) {
+    return this.httpClient.post(`${this.baseURL}/users/verify`, {id});
   }
 
   fireStaff(details: any) {

@@ -1,1 +1,32 @@
-<p>login works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6 container">
+      <form class="" #form="ngForm">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>ID</mat-label>
+          <input
+            type="text"
+            matInput
+            [(ngModel)]="id"
+            #ids="ngModel"
+            required
+            name="id"
+          />
+          <mat-error *ngIf="ids.errors?.['required'] && ids.touched">
+            ID is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          [disabled]="form.invalid"
+          (click)="login()"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

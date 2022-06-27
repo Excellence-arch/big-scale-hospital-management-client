@@ -2,7 +2,19 @@
   <div class="row">
     <div class="col-4"></div>
     <div class="col-8">
-      <input  />
+      <form>
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input type="text" matInput required>
+        </mat-form-field>
+        <mat-error>First Name is <strong>required</strong></mat-error>
+
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input type="text" matInput required>
+        </mat-form-field>
+        <mat-error>Last Name is <strong>required</strong></mat-error>
+      </form>
     </div>
   </div>
 </div>

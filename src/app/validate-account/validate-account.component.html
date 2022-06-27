@@ -1,1 +1,34 @@
-<p>validate-account works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6 container">
+      <form #forms="ngForm">
+        <div *ngIf="error" class="alert alert-danger text-danger">{{error}}</div>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Verification Code</mat-label>
+          <input
+            type="text"
+            matInput
+            [(ngModel)]="verification_code"
+            #code="ngModel"
+            required
+            name="verification code"
+            minlength="5"
+          />
+          <mat-error *ngIf="code.errors?.['required']">
+            Verification code is <strong>required</strong>
+          </mat-error>
+          <mat-error> Minimum length is <strong>5</strong> </mat-error>
+        </mat-form-field>
+        <button
+          type="button"
+          [disabled]="forms.invalid"
+          mat-raised-button
+          color="primary"
+          (click)="verify()"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

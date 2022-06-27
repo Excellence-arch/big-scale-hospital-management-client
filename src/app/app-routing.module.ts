@@ -8,11 +8,13 @@ import { HistoryComponent } from './history/history.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ValidateAccountComponent } from './validate-account/validate-account.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "/home" },
   { path: "home", component: HomeComponent },
   { path: "login", component: LoginComponent },
+  { path:"verify", component: ValidateAccountComponent },
   { path: "register", component: RegisterComponent },
   { path: "users", component: SideNavComponent, children: [
     { path: "dashboard", component: DashboardComponent },
