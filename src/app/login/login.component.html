@@ -2,6 +2,8 @@
   <div class="row">
     <div class="col-6 container">
       <form class="" #form="ngForm">
+        <h4 class="display-4 text-center">Login</h4>
+        <p *ngIf="error" class="alert alert-danger text-danger font-weight-bold">{{error}}</p>
         <mat-form-field class="w-100" appearance="fill">
           <mat-label>ID</mat-label>
           <input

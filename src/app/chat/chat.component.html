@@ -1,1 +1,17 @@
-<p>chat works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-8 container">
+      <div class="scrolls">
+      <div *ngFor="let chat of chats">
+        <p class="bg-chat rounded">{{chat.message}}</p>
+      </div>
+      </div>
+      <mat-form-field appearance="fill" class="w-75">
+        <input type="text" [(ngModel)]="message" placeholder="Type your message here..."  matInput>
+      </mat-form-field>
+      <button color="primary" class="mx-4" mat-fab mat-raised-button (click)="postMessage()" >
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
