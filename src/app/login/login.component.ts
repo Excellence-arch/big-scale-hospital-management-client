@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
         if(res.status && !res.verified) {
           this.router.navigate(["/verify"]);
         } else {
+          localStorage.setItem("token", res.token);
           this.router.navigate(["/dashboard"]);
         }
       }

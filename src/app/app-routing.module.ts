@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ValidateAccountComponent } from './validate-account/validate-account.component';
 import { ChatComponent } from './chat/chat.component';
+import { DashboardGuard } from './guards/dashboard.guard';
 
 const routes: Routes = [
   // { path: "", pathMatch: "full", redirectTo: "/home" },
@@ -23,7 +24,7 @@ const routes: Routes = [
     { path: "history", component: HistoryComponent },
     { path: "profile", component: ProfileComponent },
     { path: "chat", component: ChatComponent }
-  ] }
+  ], canActivateChild: [DashboardGuard] }
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { OnlineUserService } from '../services/online-user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,5 +30,12 @@ export class DashboardComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, public onlineUser: OnlineUserService) {}
+  ngOnInit() {
+    this.onlineUser.getDashboard().subscribe((res: any) => {
+      if(res.status) {
+        this.onlineUser.user.next(res.response);
+      }
+    })
+  }
 }
