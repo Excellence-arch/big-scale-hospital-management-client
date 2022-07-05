@@ -21,6 +21,9 @@ export class DashboardGuard implements CanActivate, CanActivateChild {
         if (!res.status) {
           localStorage.removeItem("token");
           this.router.navigate(['/home']);
+        } 
+        else {
+          this.onlineUser.user.next(res.response[0]);
         }
       })
       return true;

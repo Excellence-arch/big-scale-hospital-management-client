@@ -32,10 +32,10 @@ export class DashboardComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, public onlineUser: OnlineUserService) {}
   ngOnInit() {
-    this.onlineUser.getDashboard().subscribe((res: any) => {
-      if(res.status) {
-        this.onlineUser.user.next(res.response);
-      }
-    })
+    // this.onlineUser.getDashboard().subscribe((res: any) => {
+    //   if(res.status) {
+    //     this.onlineUser.user.next(res.response);
+    //   }
+    // })
   }
 }
