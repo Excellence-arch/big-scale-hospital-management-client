@@ -25,9 +25,10 @@ import { ChatComponent } from './chat/chat.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ValidateAccountComponent } from './validate-account/validate-account.component'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerifyComponent } from './verify/verify.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatOptionModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -59,8 +60,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatSnackBarModule,
     MatInputModule,
+    MatOptionModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
