@@ -13,12 +13,12 @@ import { ChatComponent } from './chat/chat.component';
 import { DashboardGuard } from './guards/dashboard.guard';
 
 const routes: Routes = [
-  // { path: "", pathMatch: "full", redirectTo: "/home" },
+  { path: "", pathMatch: "full", redirectTo: "/home" },
   { path: "home", component: HomeComponent },
   { path: "login", component: LoginComponent },
   { path:"verify", component: ValidateAccountComponent },
   { path: "register", component: RegisterComponent },
-  { path: "", component: SideNavComponent, children: [
+  { path: "hospital", component: SideNavComponent, children: [
     { path: "dashboard", component: DashboardComponent },
     { path: "schedule", component: ScheduleComponent },
     { path: "history", component: HistoryComponent },
