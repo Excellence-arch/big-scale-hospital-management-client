@@ -10,9 +10,9 @@ export class RegisterComponent implements OnInit {
 
   constructor(public fb: FormBuilder) { }
   public userForm = this.fb.group({
-    first_name: [String, ],
-    last_name: [String, ],
-    gender: [Boolean],
+    first_name: ["", ],
+    last_name: ["", ],
+    gender: ["", ],
   })
 
   ngOnInit(): void {

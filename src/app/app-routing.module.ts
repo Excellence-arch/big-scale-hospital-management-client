@@ -18,13 +18,13 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path:"verify", component: ValidateAccountComponent },
   { path: "register", component: RegisterComponent },
-  { path: "", component: SideNavComponent, children: [
-    { path: "dashboard", component: DashboardComponent },
+  { path: "", component: SideNavComponent, canActivateChild: [DashboardGuard], children: [
+    { path: "", component: DashboardComponent },
     { path: "schedule", component: ScheduleComponent },
     { path: "history", component: HistoryComponent },
     { path: "profile", component: ProfileComponent },
     { path: "chat", component: ChatComponent }
-  ], canActivateChild: [DashboardGuard] }
+  ] }
 ];
 
 @NgModule({

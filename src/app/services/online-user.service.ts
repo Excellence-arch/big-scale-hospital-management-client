@@ -9,18 +9,20 @@ import { BehaviorSubject } from 'rxjs';
 export class OnlineUserService {
 
   private baseUrl: string = environment.baseUrl;
-  private token: any = localStorage.getItem("token") || null;
+  // public token: any = localStorage.getItem("token");
 
   constructor(public httpClient: HttpClient) { }
 
   public user = new BehaviorSubject(Object);
   public userDetails = new BehaviorSubject(Object);
 
-  getDashboard() {
-    return this.httpClient.get<any>(`${this.baseUrl}/users/get-dashboard`, {headers: {
-      "Authorization": `Bearer ${this.token}`,
+  getDashboard(token: any) {
+    return this.httpClient.get<any>(`${this.baseUrl}/users/get-dashboard`, {
+      headers: {
+      "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json",
       "Accept": "application/json"
-    }})
+    }
+  })
   }
 }

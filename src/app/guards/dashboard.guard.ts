@@ -8,22 +8,37 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class DashboardGuard implements CanActivate, CanActivateChild {
-  constructor(private onlineUser: OnlineUserService, private router: Router) {}
+  constructor(public onlineUser: OnlineUserService, public router: Router) {}
+  private token = localStorage.getItem("token");
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      this.onlineUser.getDashboard(this.token).subscribe((res: any) => {
+        console.log(res);
+        if (res.status == false) {
+          localStorage.removeItem('token');
+          this.router.navigate(['/home']);
+          return false;
+        } else {
+          this.onlineUser.user.next(res.response[0]);
+          return true;
+        }
+      });
     return true;
   }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      this.onlineUser.getDashboard().subscribe((res:any) => {
-        if (!res.status) {
+      this.onlineUser.getDashboard(this.token).subscribe((res:any) => {
+        console.log(res);
+        if (res.status == false) {
           localStorage.removeItem("token");
           this.router.navigate(['/home']);
+          return false;
         } 
         else {
           this.onlineUser.user.next(res.response[0]);
+          return true;
         }
       })
       return true;

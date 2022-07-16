@@ -1,29 +1,29 @@
-<div class="bg-primary container-fluid h-100" color="primary">
+<div class="bg-priary container-fluid h-100" color="primary">
   <div class="container">
     <div class="row">
       <div class="col-4"></div>
       <div class="col-8">
         <form [formGroup]="userForm">
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="fill" class="my-2 w-100">
             <mat-label>First Name</mat-label>
             <input type="text" matInput required formControlName="first_name">
           </mat-form-field>
           <mat-error *ngIf="">First Name is <strong>required</strong></mat-error>
 
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="fill" class="my-2 w-100">
             <mat-label>Last Name</mat-label>
             <input type="text" matInput required formControlName="last_name">
           </mat-form-field>
           <mat-error>Last Name is <strong>required</strong></mat-error>
 
-          <mat-form-field appearance="fill">
+          <!-- <mat-form-field appearance="fill">
           <mat-select required formControlName="gender">
             <mat-option>--Gender--</mat-option>
             <mat-option value="true">Male</mat-option>
             <mat-option value="false">Female</mat-option>
           </mat-select>
           <mat-label>Gender</mat-label>
-        </mat-form-field>
+        </mat-form-field> -->
         </form>
       </div>
     </div>
