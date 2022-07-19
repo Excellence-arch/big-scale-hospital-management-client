@@ -60,6 +60,7 @@ import { MatOptionModule } from '@angular/material/core';
     MatListModule,
     MatSnackBarModule,
     MatInputModule,
+    MatCardModule,
     MatOptionModule,
     FormsModule,
     HttpClientModule,
