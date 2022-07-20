@@ -29,6 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerifyComponent } from './verify/verify.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatOptionModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { MatOptionModule } from '@angular/material/core';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

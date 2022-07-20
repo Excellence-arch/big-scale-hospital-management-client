@@ -1,20 +1,50 @@
 <div class="bg-priary container-fluid h-100" color="primary">
   <div class="container">
     <div class="row">
-      <div class="col-4"></div>
+      <div class="col-4">
+        <img src="../../assets/hospital2.jpg" alt="Hospital" class="w-100 h-100" />
+      </div>
       <div class="col-8">
         <form [formGroup]="userForm">
           <mat-form-field appearance="fill" class="my-2 w-100">
             <mat-label>First Name</mat-label>
             <input type="text" matInput required formControlName="first_name">
           </mat-form-field>
-          <mat-error *ngIf="">First Name is <strong>required</strong></mat-error>
+          <mat-error *ngIf="userForm.get('first_name')?.errors?.['required'] && userForm.get('first_name')?.touched">First Name is <strong>required</strong></mat-error>
 
           <mat-form-field appearance="fill" class="my-2 w-100">
             <mat-label>Last Name</mat-label>
             <input type="text" matInput required formControlName="last_name">
           </mat-form-field>
-          <mat-error>Last Name is <strong>required</strong></mat-error>
+          <mat-error *ngIf="userForm.get('last_name')?.errors?.['required'] && userForm.get('last_name')?.touched">Last Name is <strong>required</strong></mat-error>
+
+          <mat-form-field appearance="fill" class="my-2 w-100">
+            <mat-label>Email</mat-label>
+            <input type="text" matInput required formControlName="email">
+          </mat-form-field>
+          <mat-error *ngIf="userForm.get('email')?.errors?.['required'] && userForm.get('email')?.touched">Email is <strong>required</strong></mat-error>
+          <mat-error *ngIf="userForm.get('email')?.errors?.['email'] && userForm.get('email')?.touched">Email is <strong>invalid</strong></mat-error>
+
+          <!-- <mat-form-field appearance="fill" class="my-2 w-100"> -->
+            <div class="w-100 my-2">
+              <mat-label>Gender</mat-label> <br/>
+              <mat-radio-group aria-label="gender" formControlName="gender" required>
+                <mat-radio-button value="Male" class="mx-3">Male</mat-radio-button>
+                <mat-radio-button value="Female" class="mx-3">Female</mat-radio-button>
+              </mat-radio-group>
+              <mat-error *ngIf="userForm.get('gender')?.errors?.['required'] && userForm.get('gender')?.touched">Gender is <strong>required</strong></mat-error>
+            </div>
+          <!-- </mat-form-field> -->
+
+          <button
+            mat-raised-button
+            color="primary"
+            class="w-100 my-2"
+            (click)="register()"
+            [disabled]="userForm.invalid"
+          >
+            Submit
+          </button>
 
         </form>
       </div>
