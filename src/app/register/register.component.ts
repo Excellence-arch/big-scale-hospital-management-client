@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { RequestsService } from '../services/requests.service';
 
 @Component({
   selector: 'app-register',
@@ -8,11 +9,14 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(public fb: FormBuilder) { }
+  constructor(public fb: FormBuilder, public requestService: RequestsService) { }
+  public error: any;
+  public message: any;
   public userForm = this.fb.group({
     first_name: ["", [Validators.required]],
     last_name: ["", [Validators.required]],
     email: ["", [Validators.required, Validators.email]],
+    address: ["", [Validators.required]],
     gender: ["", [Validators.required]],
   })
 
@@ -20,6 +24,13 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    this.requestService.register(this.userForm.value).subscribe((res:any) => {
+      if(res.status == false) {
+        this.error = res.message;
+      } else {
+        this.message = res.message;
+      }
+    })
     console.log(this.userForm.value);
   }
 

@@ -1,10 +1,12 @@
 <div class="bg-priary container-fluid h-100" color="primary">
-  <div class="container">
+  <div class="container mt-lg-5 mt-sm-1">
     <div class="row">
-      <div class="col-4">
+      <div class="col-5">
         <img src="../../assets/hospital2.jpg" alt="Hospital" class="w-100 h-100" />
       </div>
-      <div class="col-8">
+      <div class="col-7">
+        <div *ngIf="error">{{error}}</div>
+        <div *ngIf="message">{{message}}</div>
         <form [formGroup]="userForm">
           <mat-form-field appearance="fill" class="my-2 w-100">
             <mat-label>First Name</mat-label>
@@ -36,6 +38,12 @@
             </div>
           <!-- </mat-form-field> -->
 
+          <mat-form-field appearance="fill" class="my-2 w-100">
+            <mat-label>Address</mat-label>
+            <textarea matInput cols="30" rows="3" formControlName="address"></textarea>
+          </mat-form-field>
+          <mat-error *ngIf="userForm.get('address')?.errors?.['required'] && userForm.get('address')?.touched">Address is <strong>required</strong></mat-error>
+
           <button
             mat-raised-button
             color="primary"
@@ -47,6 +55,7 @@
           </button>
 
         </form>
+        <div class="text-center">Already have an account? <a routerLink="/login">Login</a></div>
       </div>
     </div>
   </div>
